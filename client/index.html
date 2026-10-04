@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Flight Booking App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1 id="app-title">Flight Booking</h1>
+      <nav id="nav">
+        <a href="#/flights" id="nav-flights">Flights</a>
+        <a href="#/profile" id="nav-profile" style="display: none">Profile</a>
+        <a href="#/login" id="nav-login">Login</a>
+        <a href="#/register" id="nav-register">Register</a>
+        <button id="nav-logout" style="display: none">Logout</button>
+      </nav>
+    </header>
+
+    <main id="app"></main>
+
+    <footer>
+      <p>Flight Booking System — Vanilla JS frontend</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  </body>
+</html>

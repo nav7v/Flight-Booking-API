@@ -1,0 +1,132 @@
+Objective
+
+Develop a comprehensive flight booking system in Node.js that enables users to search, book, manage, and cancel flights, while providing administrators with full control over flight inventory and user management.
+
+
+▼Acceptance criteria
+
+
+RESTful Architecture
+-Develop a RESTful API using Node.js, ExpressJS, and MongoDB for efficient data handling and routing control.
+
+
+Code Modularity
+-Organize code using ES6 Modules for maintainability and modularity.
+-Secure routes so only authenticated users can book, view, or cancel.
+
+
+User Authentication
+-Implement a user authentication system with essential features like register, login, and logout.
+-Registration should include user details such as name, email, password, role, profilePicture, createdAt and gender.
+
+
+User Management
+-Implement CRUD operations for flights.
+-Ensure that each post references the user who created it.
+-Post can be updated or deleted only by the post owner.
+
+
+flight Management
+-Develop a flight booking system that allows users to create, update, fetch and cancel bookings.
+-Search flights by origin, destination, date range, price range, and airline.
+-Support image upload for each flight (e.g., airline logo) via Multer with file-type validation.
+
+
+Booking Functionality
+-Create bookings that allow multiple passengers per booking.
+-Track Booking Details for user
+-Automatically assign and decrement available seats.
+-Allow cancellations with updated seat counts & status.
+
+
+
+Booking Features
+-Booking cancellation & status will be updated by the admin only.
+-Booking cancellation request can be raised by the user itself.
+
+
+User Profile Updates
+-Enable users to update their profiles, including fields like name, email, password or profile Picture.
+-Users can view and update their profile, including uploading a profile picture.
+-Implement image uploads for user profiles.
+
+
+
+
+TASKS-
+
+Project setup-
+-Set up an Express.js application and configure related settings.
+
+
+Dependency Installation
+-Install the necessary project dependencies based on the required functionalities.
+
+
+We have two types of roles: 'user', 'admin' with default as 'user'.
+
+
+User Authentication
+-Implement user registration and login routes.
+-Develop user logout routes.
+
+
+User Profile
+-Create routes for getting user details and updating user profiles.
+-Implement avatar uploads.
+
+User Management
+-Set up routes and controllers for CRUD operations on flights.
+-Creating, Deleting & Updating flight records will require admin access while viewing all flights or a specific flight is public.
+
+
+Flight System
+-Develop routes and controllers for booking flights.
+
+
+Flight Booking Functionality
+-Create routes and logic for creating, fetching, cancelling & updating flight bookings.
+
+
+Booking Features
+Implement error handling middleware and request logging.
+Testing and Documentation-
+-Thoroughly test the API to ensure it meets acceptance criteria.
+-Document the application's functionalities, dependencies, and code organization for clarity.
+
+
+Additional Tasks
+To further enhance the system, consider:
+1. Implement the front end for Flight Booking System.
+2. Implement real-time seat availability through Ul.
+3. Add email notifications (booking confirmation, cancellation) using Nodemailer.
+4. Add pagination and sorting on flight search results.
+
+
+
+API Structure
+The API structure for the "Flight Booking-System" project can be organized as follows:
+
+1.Authentication Routes
+POST "/api/auth/register": Register a new user.
+POST "/api/auth/login": Login and issues token. Also adds token in the cookies and sets user in session.
+POST "/api/auth/logout": Log out the user by clearing the session & removing token from cookies.
+
+
+2.User Routes
+POST "/api/users/profile": Register a new user.
+GET "/api/users/": Fetch the user details based on the jwt info.
+
+
+3.Flight Routes
+POST "/api/flights": Create a flight with flightNumber, airline, departureCity, arrival City, departureDate, arrival Date, price, availableSeats, flightClass, image (Flight logo). This api is only accessible by admin.
+GET "/api/flights" Search flights with following parameters: departureCity, arrival City, departure Date, flightClass. This is a public api and can be accessed by the user.
+GET "/api/flights/:id": Get flight details for the given flight ID. This is a public api and can be accessed by the user.
+PUT "/api/flights/:id": Update flight details for the given flight ID. This api is only accessible by admin.
+DELETE "/api/flights/:id": Delete flight for the given flight ID. This api is only accessible by admin.
+
+
+4.Booking Routes
+POST "/api/bookings": Create booking (flightld, passenger list)
+GET "/api/bookings/:id": Get booking by ID
+PUT "/api/bookings/id/cancel": Cancel booking and process refund
